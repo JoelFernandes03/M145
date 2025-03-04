@@ -1,0 +1,23 @@
+enable
+Switch# show running-config
+
+Switch# configure terminal
+
+Switch(config)# hostname S1
+
+S1(config)# line console 0
+
+S1(config-line)# password letmein
+
+login
+exit
+S1(config)# enable password c1$c0
+
+S1(config)# enable secret itsasecret
+
+S1(config)# service password-encryption
+
+S1(config)# banner motd "This is a secure system. Authorized Access Only!"
+
+S1# copy running-config startup-config
+
