@@ -55,7 +55,7 @@ Wieviele Switchs stehen ihnen am Standort Chur zur Verfügung?
 Antwort: Es stehen 2 Switches zur Verfügung ZyXEL XGS1910-24, gestackt.
 
 Frau Sommer arbeitet an der CAD-Workstation und meldet ihnen, dass sie keine Verbindung ins Internet mehr hat. Was werden sie überprüfen?
-Antwort: Überprüfen Sie die physische Verbindung, die IP-Konfiguration, den Switch-Port.
+Antwort: Überprüfen Sie die physische Verbindung(Schauen ob Switch leuchtet am Port), die IP-Konfiguration(DHCP und Konfigs richtig), Schauen ob auf PC die Ethernet Verbindung angezeigt wird 
 
 Wie lautet die SSID des Churer-AccessPoint?
 Antwort: Die SSID des Churer-AccessPoints wird nicht explizit im Dokument angegeben.
