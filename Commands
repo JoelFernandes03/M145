@@ -21,3 +21,28 @@ S1(config)# banner motd "This is a secure system. Authorized Access Only!"
 
 S1# copy running-config startup-config
 
+
+
+
+Switch IP:
+S1# configure terminal
+
+Enter configuration commands, one per line. End with CNTL/Z.
+
+S1(config)# interface vlan 1
+
+S1(config-if)# ip address 192.168.1.253 255.255.255.0
+
+S1(config-if)# no shutdown
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan1, changed state to up
+
+S1(config-if)#
+
+S1(config-if)# exit
+
+
+Switch(config)#ip default-gateway 192.168.0.65
+
+192.168.0.0/26
+192.168.0.63
