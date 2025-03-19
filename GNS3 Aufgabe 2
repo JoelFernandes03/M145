@@ -1,0 +1,42 @@
+Ip NEtz 192.168.0.0/24
+
+pc 1 192.168.0.10
+pc 2 192.168.0.11
+pc 3 192.168.0.12
+Pc 4 192.168.0.13
+pc 5 192.168.0.14
+pc 6 192.168.0.15
+Commands:
+ip 192.168.0.10 255.255.255.0 192.168.0.1
+
+
+
+
+/interface bridge add name=bridge1 protocol-mode=none vlan-filtering=yes
+
+/interface bridge port add bridge=bridge1 comment="VLAN 10 - " frame-types=admit-only-untagged-and-priority-tagged hw=no interface=ether4 pvid=10
+/interface bridge port add bridge=bridge1 comment="VLAN 20 -" frame-types=admit-only-untagged-and-priority-tagged hw=no interface=ether5 pvid=20
+/interface bridge port add bridge=bridge1 comment="VLAN 30 -" frame-types=admit-only-untagged-and-priority-tagged hw=no interface=ether6 pvid=30
+
+
+/interface bridge port add bridge=bridge1 frame-types=admit-only-vlan-tagged hw=no interface=ether8
+
+/interface bridge vlan add bridge=bridge1 comment="VLAN 10" tagged=ether8 untagged=ether4 vlan-ids=10
+/interface bridge vlan add bridge=bridge1 comment="VLAN 20" tagged=ether8 untagged=ether5 vlan-ids=20
+/interface bridge vlan add bridge=bridge1 comment="VLAN 30" tagged=ether8 untagged=ether6 vlan-ids=30
+
+#/interface bridge port
+#add bridge=bridge1 comment="VLAN - Buchhaltung" frame-types=\
+#    admit-only-untagged-and-priority-tagged hw=no interface=ether4 pvid=10
+add bridge=bridge1 frame-types=admit-only-vlan-tagged hw=no interface=ether8
+add bridge=bridge1 comment="VLAN - Entwicklung" frame-types=\
+    admit-only-untagged-and-priority-tagged hw=no interface=ether5 pvid=20
+add bridge=bridge1 comment="VLAN - Verkauf" frame-types=\
+    admit-only-untagged-and-priority-tagged hw=no interface=ether6 pvid=30
+/interface bridge vlan
+add bridge=bridge1 comment="VLAN 10" tagged=ether8 untagged=ether4 vlan-ids=\
+    10
+add bridge=bridge1 comment="VLAN 20" tagged=ether8 untagged=ether5 vlan-ids=\
+    20
+add bridge=bridge1 comment="VLAN 30" tagged=ether8 untagged=ether6 vlan-ids=\
+    30
